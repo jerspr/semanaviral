@@ -69,7 +69,7 @@ if(td_util::get_option('tds_disable_comments_sidewide') == '') {?>
 
         ?>
             <div style="display:inline-block;width:100%;margin-bottom:50px;vertical-align:top;">
-                <div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
+                <div class="fb-comments" data-href="<?php the_permalink(); ?>" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
             </div>
         <?php
 
