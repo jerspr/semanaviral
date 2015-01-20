@@ -242,13 +242,6 @@ function td_wp_title( $title, $sep ) {
 }
 add_filter( 'wp_title', 'td_wp_title', 10, 2 );
 
-
-
-
-
-
-
-
 /*  ----------------------------------------------------------------------------
     page view counter
  */
@@ -301,8 +294,6 @@ function archive_count_no_brackets($links) {
 //remove gallery style css
 add_filter( 'use_default_gallery_style', '__return_false' );
 
-
-
 function remove_more_link_scroll( $link ) {
 
 	$link = preg_replace( '|#more-[0-9]+|', '', $link );
@@ -311,8 +302,6 @@ function remove_more_link_scroll( $link ) {
 	return $link;
 }
 add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
-
-
 
 /*  ----------------------------------------------------------------------------
     excerpt lenght
@@ -333,8 +322,6 @@ function my_excerpt_length($length) {
     }
 }
 
-
-
 /*  ----------------------------------------------------------------------------
     more text
  */
@@ -343,7 +330,6 @@ add_filter('excerpt_more', 'new_excerpt_more');
 function new_excerpt_more($text){
     return ' ';
 }
-
 
 
 /*  ----------------------------------------------------------------------------
@@ -411,8 +397,6 @@ add_image_size('art-slidebig-main',  745, 483, true);
 //the gallery
 add_image_size('art-gal',         210, 210, true);
 
-
-
 //the gallery
 add_image_size('td_198x143', 198, 143, true);
 
@@ -422,18 +406,11 @@ add_image_size('td_198x143', 198, 143, true);
 
 add_theme_support('post-formats', array('gallery', 'video', 'link', 'quote'));
 
-
-
-
-
-
-
 /*  ----------------------------------------------------------------------------
     shortcodes in widgets
  */
 
 add_filter('widget_text', 'do_shortcode');
-
 
 
 /*  ----------------------------------------------------------------------------
@@ -444,14 +421,11 @@ if (!isset($content_width)) {
     $content_width = 700;
 }
 
-
-
 /*  ----------------------------------------------------------------------------
     rss supporrt
  */
 
 add_theme_support('automatic-feed-links');
-
 
 
 /*  ----------------------------------------------------------------------------
@@ -530,23 +504,15 @@ if (!empty($currentSidebars)) {
  */
 
 if (is_admin()) {
-
     /*
      * the wp-admin TinyMCE editor buttons
      */
     require_once('wp-admin/tinymce/tinymce.php');
-
-
     /*
      * Custom content metaboxes (the select sidebar dropdown/post etc)
      */
     require_once ('wp-admin/content-metaboxes/td_templates_settings.php');
 }
-
-
-
-
-
 
 //the bottom code for css
 function td_bottom_code() {
@@ -558,22 +524,6 @@ function td_bottom_code() {
     if (defined('TD_SPEED_BOOSTER')) {
         $speed_booster = 'Speed booster: ' . TD_SPEED_BOOSTER . "\n";
     }
-
-    echo '
-
-    <!--
-
-        Theme: ' . TD_THEME_NAME .' by tagDiv 2014
-        Version: ' . TD_THEME_VERSION . ' (rara)
-        Deploy mode: ' . TD_DEPLOY_MODE . '
-        ' . $speed_booster . '
-        uid: ' . uniqid() . '
-    -->
-
-    ';
-
-
-
     //get and paste user custom css
     $td_custom_css = stripslashes(td_util::get_option('tds_custom_css'));
 
@@ -713,11 +663,6 @@ function add_slug_to_body_class( $classes ) {
 }
 add_filter('body_class', 'add_slug_to_body_class');
 
-
-
-
-
-
 //remove span row container classes from post_class()
 function add_slug_to_post_class( $classes ) {
     $i = 0;
@@ -742,8 +687,6 @@ function add_slug_to_post_class( $classes ) {
 }
 add_filter('post_class', 'add_slug_to_post_class');
 
-
-
 /*  -----------------------------------------------------------------------------
     Our custom admin bar
  */
@@ -759,9 +702,6 @@ function td_custom_menu() {
         'id' => 'td-menu1'
     ));
 
-
-
-
     $wp_admin_bar->add_menu( array(
         'id'   => 'our_support_item',
         'meta' => array('title' => 'Theme support', 'target' => '_blank'),
@@ -769,7 +709,6 @@ function td_custom_menu() {
         'href' => 'http://forum.tagdiv.com' ));
 
 }
-
 
 /*  -----------------------------------------------------------------------------
     Woo commerce
@@ -1386,18 +1325,6 @@ function td_gallery_atts_modifier($out) {
     return $out;
 }
 add_filter( 'shortcode_atts_gallery', 'td_gallery_atts_modifier', 1); //run with 1 priority, allow anyone to overwrite our hook.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /**
